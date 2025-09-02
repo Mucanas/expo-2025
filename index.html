@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cofre Misterioso</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Tela inicial: digitar palavra -->
+  <div id="tela-palavra">
+    <div class="manual-container">
+      <img src="papel.png" alt="Manual" class="manual-imagem">
+      <div class="manual-conteudo">
+        <h2>Digite a palavra secreta:</h2>
+        <input type="text" id="entradaPalavra" placeholder="Digite aqui">
+        <button onclick="verificarPalavra()">Abrir Manual</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manual com dicas -->
+  <div id="tela-manual" style="display:none;">
+    <div class="manual-container">
+      <img src="papel.png" alt="Manual" class="manual-imagem">
+      <div class="manual-conteudo">
+        <button class="fechar" onclick="fecharManual()">X</button>
+        <h2>Manual do Cofre</h2>
+        <p id="dicas"></p>
+        <button onclick="irParaCofre()">Ir para o Cofre</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cofre -->
+  <div id="tela-cofre" style="display:none;">
+    <div class="cofre-layout">
+      <button id="btnMostrarManual" onclick="mostrarManualCofre()">Mostrar Manual</button>
+      <div class="container">
+        <img id="cofreImagem" src="cofre fechado.png" alt="Cofre Fechado" />
+        <!-- Bilhete escondido -->
+        <div id="bilhete" style="display:none;" class="bilhete">
+          <p>📜 Parabéns por ter descoberto esse enigma!<br>
+          Guarde bem esta senha, você precisará dela na próxima fase.<br>
+          Boa sorte!</p>
+        </div>
+      </div>
+      <div class="senha-container">
+        <h3>Digite a senha do cofre:</h3>
+        <input type="text" id="entradaSenha" maxlength="4" placeholder="0000">
+        <button onclick="verificarSenha()">Abrir Cofre</button>
+        <div class="mensagem" id="mensagem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Áudios -->
+  <audio id="somClick" src="som_click.mp3"></audio>
+  <audio id="somErro" src="som_erro.mp3"></audio>
+  <audio id="somAcerto" src="som_acerto.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
